@@ -1,0 +1,11 @@
+.o-container {
+    margin: 5% 0 0 0;
+    padding: 4em;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid lightgray;
+}
+
+main {
+    background-color: white;
+    padding: 40px !important;
+}
