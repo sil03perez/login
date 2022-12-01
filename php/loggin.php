@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 $user = $_POST ['user'];
 $clave = $_POST ['clave'];
 
-$query = "select usuarios,clave  from usuario where usuarios='$user' and clave='$clave'";
+$query = "select usuarios,clave  from form where usuarios='$user' and clave='$clave'";
 $data = (mysqli_query($conexion, $query));
 $total= mysqli_num_rows($data);
 

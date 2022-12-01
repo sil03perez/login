@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 $user = $_POST ['user'];
 $clave = $_POST ['clave'];
 
-$query = "INSERT INTO usuario VALUES (0,'$user','$clave')";
+$query = "INSERT INTO form VALUES (0,'$user','$clave')";
 
 if($result = mysqli_query($conexion, $query)){}
 $conexion->close();
