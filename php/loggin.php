@@ -34,9 +34,9 @@
     <br><br>
 
 <form method='post'>
-  <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" name="user" id="email" aria-describedby="emailHelp">
+<div class="mb-3">
+    <label for="email" class="form-label">Nombre de usuario</label>
+    <input type="text" class="form-control" name="usuario" id="email" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="clave" class="form-label">Clave</label>
@@ -48,16 +48,17 @@
 
 include("conexion.php");
 if($_SERVER['REQUEST_METHOD']=='POST'){
-$user = $_POST ['user'];
+$usuario = $_POST ['usuario'];
 $clave = $_POST ['clave'];
 
-$query = "select usuarios,clave  from form where usuarios='$user' and clave='$clave'";
+$query = "select user,clave  from form where user='$usuario' and clave='$clave'";
 $data = (mysqli_query($conexion, $query));
 $total= mysqli_num_rows($data);
 
 if($total>0){
     session_start();
     header ('location: logger.php');
+    $_SESSION['usuario']= $usuario;
 
 }else echo "Las claves no coinciden";
 

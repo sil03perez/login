@@ -1,3 +1,18 @@
+<?php
+if(isset($_SESSION['user'])){
+
+setcookie("session","cookie", time()+15, "/");
+setcookie("session","cookie", time()+15, "/");
+
+$url1 = $_SERVER['REQUEST_URL'];
+header("REFRESH:300; URL; URL=$url1");
+
+if(!isset($_COOKIE['session'])){
+header("location: logout.php?cookie=expired");
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +35,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <button type="submit" class="btn btn-primary" href="logout.php">Log out</button>
+      <a  class="btn btn-primary" href="logout.php">Log out</a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href="loggin.php">inicie sesion</a>
@@ -30,6 +45,8 @@
   </nav>
 </header> 
 
-<H1>Bienvenido<?session_start();
-$_SESSION['usuarios'];?></H1>
+<H1>
+  Bienvenid@ <?php session_start();
+echo $_SESSION['usuario'];?>
+</H1>
 </body>

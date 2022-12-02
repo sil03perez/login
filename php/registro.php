@@ -34,6 +34,10 @@
     <br><br>
 
 <form method='post'>
+<div class="mb-3">
+    <label for="email" class="form-label">Nombre de usuario</label>
+    <input type="text" class="form-control" name="usuario" id="email" aria-describedby="emailHelp">
+  </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" class="form-control" name="user" id="email" aria-describedby="emailHelp">
@@ -48,10 +52,11 @@
 
 include("conexion.php");
 if($_SERVER['REQUEST_METHOD']=='POST'){
+$usuario = $_POST['usuario'];
 $user = $_POST ['user'];
 $clave = $_POST ['clave'];
 
-$query = "INSERT INTO form VALUES (0,'$user','$clave')";
+$query = "INSERT INTO form VALUES (0,'$user','$clave','$usuario')";
 
 if($result = mysqli_query($conexion, $query)){}
 $conexion->close();
